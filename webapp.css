@@ -1,0 +1,63 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(12, 155, 155, 0.205);
+}
+
+.nomargin {
+    margin: 0;
+    padding: 0;
+    font-family:  Lobster;
+    font-size: 50px;
+    color: rgba(247, 93, 4, 0.733);
+}
+
+.lobstertext {
+    font-family: Lobster;
+    font-size: 18px;
+}
+
+.ml2 {
+    font-weight: 900;
+    font-size: 3.5em;
+  }
+  
+  .ml2 .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
+
+.maingrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    /* align-items: center; */
+    list-style-type: none;
+}
+
+.imgcaption {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex:1;
+    flex-basis: 30%;
+    margin-top: 20px;
+    
+}
+
+.imgformat {
+    width: 300px;
+    height: 300px;
+    box-shadow: 5px 5px rgba(0, 0, 255, 0.295), 5px 5px red, 5px 5px 30px 5px rgb(0, 0, 0, 0.65);
+    
+}
+
+.spacer {
+    flex: 1;
+}
