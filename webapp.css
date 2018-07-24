@@ -5,13 +5,19 @@ body {
     margin: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(12, 155, 155, 0.205);
+    background: linear-gradient(to right, rgba(12, 155, 155, 0.205), rgba(16, 12, 255, 0.305));
 }
 
 .nomargin {
     margin: 0;
-    padding: 0;
+    margin-top: 5px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
     font-family:  Lobster;
+    background-color: rgba(245, 245, 245, 0.507);
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.678);
+    border-radius: 25px;
     text-shadow: -1px -1px 0 black,
         1px -1px 0 black,
         -1px 1px 0 black,
@@ -105,31 +111,96 @@ body {
     border: solid 1px black;
     border-radius: 15px;
     justify-content: center;
-    box-shadow: 5px 5px rgba(0, 0, 255, 0.295), 5px 5px red, 5px 5px 30px 5px rgb(0, 0, 0, 0.65);
-    
+    box-shadow: 5px 5px rgba(0, 0, 255, 0.295), 5px 5px red, 5px 5px 30px 5px rgb(0, 0, 0, 0.65);   
 }
-.imgformat:hover {
-    background-color: rgba(0, 0, 0, 0.281);
-    height: 320px;
-    width: 320px;
+
+.bigsize {
+    width: 500px;
+    height: 500px;
+    border: solid 1px black;
+    border-radius: 15px;
+    text-align: center;
 }
+
+
 
 .spacer {
     flex: 1;
 }
 
-#lightBoxBg{
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    opacity: 0.5;
-    display: none;
-    background-color: black;
+/* CSS for my Modal Window */
+
+.modal {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(2);
 }
 
-#lightBox{
+.modal-content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
     position: absolute;
-    top: 25%;
-    left: 40%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: azure;
+    padding: 25px;
+    width: 700px;
+    height: relative;
+    border-radius: 25px;
+}
+
+.close-button {
+    float: top;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: lightgray;
+}
+
+.close-button:hover {
+    background-color: darkgray;
+}
+
+.next-button{
+    
+    width: 20px;
+    height: 20px;
+    line-height: 2.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: darkgray;
+    flex-basis: 10%;
+}
+
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.flexdisplay {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.none {
     display: none;
 }
+

@@ -1,3 +1,4 @@
+//Array of images to be used and populated.  In 3 columns, rows of 3.  Max limits on H and W.
 var imgarray = [
     {caption: "The Pages Fly Away...", src: "surrealart/Book.jpeg"},
     {caption: "Drawn to Life...", src: "surrealart/Draw.jpeg"},
@@ -15,76 +16,82 @@ var imgarray = [
 
 var container = document.querySelector('.maingrid');
 
-for (var img of imgarray) {
+var modal = document.querySelector(".modal");
+var trigger = document.querySelector(".trigger");
+var closeButton = document.querySelector(".close-button");
+var modalbox = document.getElementById("modalBox")
+
+var toggleModal = function(event) {
+    var index = event.currentTarget.getAttribute('dataIndex')
+    event.preventDefault();
+    // bonafide.textContent("KNOW IM ON MY GREEZY IM A BONAFIDE HUSTLER")
+    modal.classList.toggle("show-modal");
+    var modalimg = document.createElement('img');
+    modalimg.setAttribute('src', imgarray[index].src);
+    modalimg.classList.add('bigsize');
+    modalbox.appendChild(modalimg);
+}
+
+var hideModal = function(event) {
+    var remove = document.querySelector(".bigsize");
+    modalbox.removeChild(remove);
+    modal.classList.toggle("show-modal");
+}
+
+var windowOnClick = function(event) {
+    if (event.target === modal) {
+        hideModal();
+    }
+}
+
+trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", hideModal);
+window.addEventListener("click", windowOnClick);
+
+
+//Populates my HTML with images created.  Loops through my array of images.
+for (var i = 0; i < imgarray.length; i++) {
     var newimg = document.createElement("img");
     newimg.classList.add('imgformat');
-    newimg.setAttribute('src', img.src);
-
+    newimg.setAttribute('src', imgarray[i].src);
+    
 
     var caption = document.createElement("a");
-    caption.setAttribute('href', "")
-    caption.textContent = img.caption;
-    caption.classList.add('lobstertext', 'links')
+    caption.setAttribute('href', "");
+    caption.textContent = imgarray[i].caption;
+    caption.classList.add('lobstertext', 'links', 'trigger');
+    caption.addEventListener('click', toggleModal);
+    caption.setAttribute('dataIndex', i);
 
     var div = document.createElement("div");
     div.classList.add('wrapper');
-    div.appendChild(caption)
+    div.appendChild(caption);
 
     var listitem = document.createElement("li");
     listitem.classList.add("imgcaption");
 
-    var link = document.createElement("a");
-    link.classList.add('links')
-    link.setAttribute('href', "");
+    var link = document.createElement("div");
+    // link.classList.add('links');
+    // link.setAttribute('href', "");
     link.appendChild(newimg);
-    // link.appendChild(div);
-    // link.appendChild(caption);
-    // link.onclick = startlb(newimg);
-    // caption.onclick = startlb(newimg);
-
+    
     var minibox = document.createElement("div");
     minibox.classList.add("imgcaption");
     minibox.appendChild(link);
     minibox.appendChild(caption);
 
-    function startlb() {
-        var lbbg = document.getElementById("lightBoxBG");
-        var lb = document.getElementById("lightBox");
-        lbBG.style.display = "block";
-        lb.style.display = "block";
-    
-    }
-    
-    function endlb() {
-        var lbbg = document.getElementById("lightBoxBG");
-        var lb = document.getElementById("lightBox");
-        lbBG.style.display = "none";
-        lb.style.display = "none";
-    }
-
     container.appendChild(minibox);
 
-    // minibox.addEventListener("click", startlb);
+    //variables for my modal box:
 
-    // minibox.addEventListener("click", function(){
-    //     console.log("it works...");
-    // })
+
+
     };
 
 
-    
-
-    // listitem.appendChild(link);
-    // listitem.appendChild(caption);
-
-    
 
 
-
-// text animation
-
-
-// Wrap every letter in a span
+// Efforts to get my animated text working.
 $('.ml2').each(function(){
     $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
   });
@@ -109,5 +116,5 @@ $('.ml2').each(function(){
       delay: 1000
     });
 
-//  Functions for the lightbox!
+
 
