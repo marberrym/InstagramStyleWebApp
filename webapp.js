@@ -1,17 +1,32 @@
 //Array of images to be used and populated.  In 3 columns, rows of 3.  Max limits on H and W.
+// var imgarray = [
+//     {caption: "The Pages Fly Away...", src: "surrealart/Book.jpeg"},
+//     {caption: "Drawn to Life...", src: "surrealart/Draw.jpeg"},
+//     {caption: "A Fire Inside...", src: "surrealart/Firegirl.jpeg"},
+//     {caption: "Oceanfront Home...", src: "surrealart/House.jpeg"},
+//     {caption: "Forgotten Notes...", src: "surrealart/Scissors.jpeg"},
+//     {caption: "A Stairway to Heaven...", src: "surrealart/Stairway.jpeg"},
+//     {caption: "A Cosmic Kiss...", src: "surrealart/Cosmokiss.jpeg"},
+//     {caption: "The Last Parade...", src: "surrealart/Elephant.jpeg"},
+//     {caption: "The Corridor...", src: "surrealart/Flower.jpeg"},
+//     {caption: "The Eyes of the Mountain...", src: "surrealart/Mountain.jpeg"},
+//     {caption: "The Nature of Decay...", src: "surrealart/Skull.jpeg"},
+//     {caption: "Forced Self-Destruction...", src: "surrealart/Tree.jpeg"},
+// ]
+
 var imgarray = [
-    {caption: "The Pages Fly Away...", src: "surrealart/Book.jpeg"},
-    {caption: "Drawn to Life...", src: "surrealart/Draw.jpeg"},
-    {caption: "A Fire Inside...", src: "surrealart/Firegirl.jpeg"},
-    {caption: "Oceanfront Home...", src: "surrealart/House.jpeg"},
-    {caption: "Forgotten Notes...", src: "surrealart/Scissors.jpeg"},
-    {caption: "A Stairway to Heaven...", src: "surrealart/Stairway.jpeg"},
-    {caption: "A Cosmic Kiss...", src: "surrealart/Cosmokiss.jpeg"},
-    {caption: "The Last Parade...", src: "surrealart/Elephant.jpeg"},
-    {caption: "The Corridor...", src: "surrealart/Flower.jpeg"},
-    {caption: "The Eyes of the Mountain...", src: "surrealart/Mountain.jpeg"},
-    {caption: "The Nature of Decay...", src: "surrealart/Skull.jpeg"},
-    {caption: "Forced Self-Destruction...", src: "surrealart/Tree.jpeg"},
+    {caption: "RICK N MORTY", src: "ricknmorty/rnm1.jpeg"},
+    {caption: "RICK N MORTY", src: "ricknmorty/rnm2.jpeg"},
+    {caption: "RICK N MORTY", src: "ricknmorty/rnm3.jpeg"},
+    {caption: "RICK N MORTY", src: "ricknmorty/rnm4.jpeg"},
+    {caption: "RICK N MORTY", src: "ricknmorty/rnm5.jpeg"},
+    {caption: "RICK N MORTY", src: "ricknmorty/rnm6.jpeg"},
+    {caption: "RICK N MORTY", src: "ricknmorty/rnm7.jpeg"},
+    {caption: "RICK N MORTY", src: "ricknmorty/rnm8.jpeg"},
+    {caption: "RICK N MORTY", src: "ricknmorty/rnm9.jpeg"},
+    {caption: "RICK N MORTY", src: "ricknmorty/rnm10.jpeg"},
+    {caption: "RICK N MORTY", src: "ricknmorty/rnm11.jpeg"},
+    {caption: "RICK N MORTY", src: "ricknmorty/rnm12.jpeg"},
 ]
 
 var container = document.querySelector('.maingrid');
