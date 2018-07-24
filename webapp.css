@@ -125,7 +125,8 @@ body {
 
 
 .spacer {
-    flex: 1;
+    flex: auto;
+    flex-grow: auto;
 }
 
 /* CSS for my Modal Window */
@@ -145,8 +146,7 @@ body {
 
 .modal-content {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
+    justify-content: space-between;
     position: absolute;
     text-align: center;
     top: 50%;
@@ -173,16 +173,24 @@ body {
     background-color: darkgray;
 }
 
-.next-button{
-    
-    width: 20px;
-    height: 20px;
-    line-height: 2.5rem;
+.prev-button {
     text-align: center;
+    font-family: Lobster;
+    font: 12px black;
+    padding: 20px;
     cursor: pointer;
     border-radius: 10px;
-    background-color: darkgray;
-    flex-basis: 10%;
+    background-color: rgba(169, 169, 169, 0.697);
+}
+
+.next-button {
+    text-align: center;
+    font-family: Lobster;
+    font: 12px black;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: rgba(169, 169, 169, 0.697);
 }
 
 
@@ -195,9 +203,9 @@ body {
 
 .flexdisplay {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
 }
 
 .none {

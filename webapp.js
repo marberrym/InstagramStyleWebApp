@@ -20,6 +20,11 @@ var modal = document.querySelector(".modal");
 var trigger = document.querySelector(".trigger");
 var closeButton = document.querySelector(".close-button");
 var modalbox = document.getElementById("modalBox")
+var prevButton = document.querySelector(".prev-button");
+var nextButton = document.querySelector(".next-button");
+
+//Global index for my next and prev buttons
+var globalindex = 0;
 
 var toggleModal = function(event) {
     var index = event.currentTarget.getAttribute('dataIndex')
@@ -27,6 +32,7 @@ var toggleModal = function(event) {
     // bonafide.textContent("KNOW IM ON MY GREEZY IM A BONAFIDE HUSTLER")
     modal.classList.toggle("show-modal");
     var modalimg = document.createElement('img');
+    globalindex = index;
     modalimg.setAttribute('src', imgarray[index].src);
     modalimg.classList.add('bigsize');
     modalbox.appendChild(modalimg);
@@ -44,9 +50,48 @@ var windowOnClick = function(event) {
     }
 }
 
+var nextIMG = function(event) {
+    var remove = document.querySelector(".bigsize");
+    var modalimg = document.createElement('img');
+    
+    if (globalindex < 11) {
+        globalindex+= 1;
+    } else {
+        globalindex = 0;
+    };
+    
+    modalbox.removeChild(remove);
+    modalimg.setAttribute('src', imgarray[globalindex].src);
+    modalimg.classList.add('bigsize');
+    modalbox.appendChild(modalimg);
+}
+
+var prevIMG = function(event) {
+    var remove = document.querySelector(".bigsize");
+    var modalimg = document.createElement('img');
+    
+    console.log("im working")
+    
+    if (globalindex > 0) {
+        globalindex-= 1;
+    } else {
+        globalindex = 11;
+    };
+    
+    modalbox.removeChild(remove);
+    modalimg.setAttribute('src', imgarray[globalindex].src);
+    modalimg.classList.add('bigsize');
+    modalbox.appendChild(modalimg);
+}
+
+prevButton.addEventListener('click', prevIMG);
+nextButton.addEventListener('click', nextIMG);
+
 trigger.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", hideModal);
 window.addEventListener("click", windowOnClick);
+
+
 
 
 //Populates my HTML with images created.  Loops through my array of images.
