@@ -32,7 +32,7 @@ var toggleModal = function(event) {
     // bonafide.textContent("KNOW IM ON MY GREEZY IM A BONAFIDE HUSTLER")
     modal.classList.toggle("show-modal");
     var modalimg = document.createElement('img');
-    globalindex = index;
+    globalindex = Number(index);
     modalimg.setAttribute('src', imgarray[index].src);
     modalimg.classList.add('bigsize');
     modalbox.appendChild(modalimg);
@@ -53,14 +53,15 @@ var windowOnClick = function(event) {
 var nextIMG = function(event) {
     var remove = document.querySelector(".bigsize");
     var modalimg = document.createElement('img');
-    
-    if (globalindex < 11) {
-        globalindex+= 1;
-    } else {
+    console.log(imgarray.length);
+    if (globalindex % (imgarray.length - 1) === 0 && globalindex != 0) {
         globalindex = 0;
+    } else {
+        globalindex += 1;
     };
     
     modalbox.removeChild(remove);
+    console.log(globalindex)
     modalimg.setAttribute('src', imgarray[globalindex].src);
     modalimg.classList.add('bigsize');
     modalbox.appendChild(modalimg);
@@ -72,10 +73,10 @@ var prevIMG = function(event) {
     
     console.log("im working")
     
-    if (globalindex > 0) {
-        globalindex-= 1;
-    } else {
+    if (globalindex % (imgarray.length - 1) === 0 && globalindex === 0) {
         globalindex = 11;
+    } else {
+        globalindex -= 1;
     };
     
     modalbox.removeChild(remove);
@@ -128,9 +129,6 @@ for (var i = 0; i < imgarray.length; i++) {
     container.appendChild(minibox);
 
     //variables for my modal box:
-
-
-
     };
 
 
