@@ -1,5 +1,6 @@
 (function(){  
     
+    
     var imgarray = [
         {caption: "RICK N MORTY", src: "ricknmorty/rnm1.jpeg"},
         {caption: "RICK N MORTY", src: "ricknmorty/rnm2.jpeg"},
