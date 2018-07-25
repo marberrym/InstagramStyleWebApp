@@ -47,8 +47,8 @@
     var toggleModal = function(event) {
         index = event.currentTarget.getAttribute('dataIndex');
         modalimg = document.createElement('img');
+
         event.preventDefault();
-        // bonafide.textContent("KNOW IM ON MY GREEZY IM A BONAFIDE HUSTLER")
         modal.classList.toggle("show-modal");
         globalindex = Number(index);
         modalimg.setAttribute('src', imgarray[index].src);
