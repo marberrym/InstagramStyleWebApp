@@ -31,23 +31,25 @@
     ]
 
     var container = document.querySelector('.maingrid');
-
     var modal = document.querySelector(".modal");
     var trigger = document.querySelector(".trigger");
     var closeButton = document.querySelector(".close-button");
     var modalbox = document.getElementById("modalBox")
     var prevButton = document.querySelector(".prev-button");
     var nextButton = document.querySelector(".next-button");
+    var index;
+    var modalimg;
 
     //Global index for my next and prev buttons
     var globalindex = 0;
 
+
     var toggleModal = function(event) {
-        var index = event.currentTarget.getAttribute('dataIndex')
+        index = event.currentTarget.getAttribute('dataIndex');
+        modalimg = document.createElement('img');
         event.preventDefault();
         // bonafide.textContent("KNOW IM ON MY GREEZY IM A BONAFIDE HUSTLER")
         modal.classList.toggle("show-modal");
-        var modalimg = document.createElement('img');
         globalindex = Number(index);
         modalimg.setAttribute('src', imgarray[index].src);
         modalimg.classList.add('bigsize');
@@ -113,39 +115,42 @@
 
     //Populates my HTML with images created.  Loops through my array of images.
     for (var i = 0; i < imgarray.length; i++) {
-        var newimg = document.createElement("img");
-        newimg.classList.add('imgformat');
-        newimg.setAttribute('src', imgarray[i].src);
-        
+        (function() {
+            var newimg = document.createElement("img");
+            newimg.classList.add('imgformat');
+            newimg.setAttribute('src', imgarray[i].src);
+            
 
-        var caption = document.createElement("a");
-        caption.setAttribute('href', "");
-        caption.textContent = imgarray[i].caption;
-        caption.classList.add('lobstertext', 'links', 'trigger');
-        caption.addEventListener('click', toggleModal);
-        caption.setAttribute('dataIndex', i);
+            var caption = document.createElement("span");
+            // caption.setAttribute('href', "");
+            caption.textContent = imgarray[i].caption;
+            caption.classList.add('lobstertext', 'links', 'trigger');
+            caption.addEventListener('click', toggleModal);
+            caption.setAttribute('dataIndex', i);
 
-        var div = document.createElement("div");
-        div.classList.add('wrapper');
-        div.appendChild(caption);
+            var div = document.createElement("div");
+            div.classList.add('wrapper');
+            div.appendChild(caption);
 
-        var listitem = document.createElement("li");
-        listitem.classList.add("imgcaption");
+            var listitem = document.createElement("li");
+            listitem.classList.add("imgcaption");
 
-        var link = document.createElement("div");
-        // link.classList.add('links');
-        // link.setAttribute('href', "");
-        link.appendChild(newimg);
-        
-        var minibox = document.createElement("div");
-        minibox.classList.add("imgcaption");
-        minibox.appendChild(link);
-        minibox.appendChild(caption);
+            var link = document.createElement("div");
+            // link.classList.add('links');
+            // link.setAttribute('href', "");
+            link.appendChild(newimg);
+            
+            var minibox = document.createElement("div");
+            minibox.classList.add("imgcaption");
+            minibox.appendChild(link);
+            minibox.appendChild(caption);
 
-        container.appendChild(minibox);
+            container.appendChild(minibox);
 
-        //variables for my modal box:
-        };
+            //variables for my modal box:
+        }());
+    }
+    
 
 
 
