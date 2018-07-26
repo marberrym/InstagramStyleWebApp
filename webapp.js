@@ -98,6 +98,16 @@
                 }
             };
 
+            var arrowKeys = function(event) {
+                if (event.key === 'ArrowLeft') {
+                    prevIMG();
+                } else if (event.key === 'ArrowRight') {
+                    nextIMG();
+                }
+            }
+
+            window.addEventListener('keydown', arrowKeys);
+
             newImg.classList.add('imgformat');
             newImg.setAttribute('src', imgarray[currentIndex].src);
             
@@ -118,6 +128,7 @@
 
             prevButton.addEventListener('click', prevIMG);
             nextButton.addEventListener('click', nextIMG);
+            
         }());
     }
     
