@@ -15,34 +15,34 @@
         {caption: "RICK N MORTY", src: "ricknmorty/rnm12.jpeg"},
     ]
 
-    var container = document.querySelector('.maingrid');
-    var modal = document.querySelector(".modal");
-    var closeButton = document.querySelector(".close-button");
-    var modalbox = document.getElementById("modalBox")
-    var prevButton = document.querySelector(".prev-button");
-    var nextButton = document.querySelector(".next-button");
+    var container = $('.maingrid');
+    var modal = $(".modal");
+    var closeButton = $(".close-button");
+    var modalbox = $("#modalBox")
+    var prevButton = $(".prev-button");
+    var nextButton = $(".next-button");
     var imgAmount = imgarray.length - 1;
     var index;
 
     var populateImage = function(img) {
-        var modalimg = document.createElement('img');
-        modalimg.setAttribute('src', img.src);
-        modalimg.classList.add('bigsize');
-        modalbox.appendChild(modalimg);
+        var modalimg = $('<img>');
+        modalimg.attr({src: img.src});
+        modalimg.addClass('bigsize');
+        modalbox.append(modalimg);
     }
 
     var removeImage = function() {
-        var remove = document.querySelector(".bigsize");
-        modalbox.removeChild(remove);
+        var remove = $(".bigsize");
+        modalbox.empty();
     }
     
     var hideModal = function(event) {
         removeImage();
-        modal.classList.toggle("show-modal");
+        modal.removeClass("show-modal");
     }
 
     var windowOnClick = function(event) {
-        if (event.target === modal) {
+        if (event.target === modal[0]) {
             hideModal();
         }
     }
@@ -84,48 +84,46 @@
         }
     }
     
-    window.addEventListener('keydown', arrowKeys);
-    closeButton.addEventListener("click", hideModal);
-    window.addEventListener("click", windowOnClick);
-    prevButton.addEventListener('click', prevIMG);
-    nextButton.addEventListener('click', nextIMG);
+    $(window).on("keydown", arrowKeys);
+    closeButton.on("click", hideModal);
+    $(window).on("click", windowOnClick);
+    prevButton.on('click', prevIMG);
+    nextButton.on('click', nextIMG);
 
     //Main For Loop to Populate Images
     // for (i = 0; i < imgarray.length; i++) {
     imgarray.forEach(function(image, i) {
         console.log("I'm running...")
-        var newImg = document.createElement("img");
-        var caption = document.createElement("span");
-        var newDiv = document.createElement("div");
-        var modalDiv = document.createElement("div");
-        var newList = document.createElement("li");
+        var newImg = $("<img>");
+        var caption = $("<span>");
+        var newDiv = $("<div>");
+        var modalDiv = $("<div>");
+        var newList = $("<li>");
         
         var toggleModal = function(event) {
             event.preventDefault();
             index = i;
-            modal.classList.toggle("show-modal");
+            modal.addClass("show-modal");
             populateImage(image);
         }
 
-        newImg.classList.add('imgformat');
-        newImg.setAttribute('src', image.src);
+        newImg.addClass('imgformat');
+        newImg.attr({src: image.src});
         
-        caption.textContent = image.caption;
-        caption.classList.add('lobstertext', 'links', 'trigger');
-        caption.addEventListener('click', toggleModal);
+        caption.text(image.caption);
+        caption.addClass('lobstertext links');
+        caption.on('click', toggleModal);
 
-        newDiv.classList.add('wrapper');
-        newDiv.appendChild(caption);
+        newDiv.addClass('wrapper');
+        newDiv.append(caption);
 
-        newList.classList.add("imgcaption");
+        newList.addClass("imgcaption");
 
-        modalDiv.classList.add("imgcaption");
-        modalDiv.appendChild(newImg);
-        modalDiv.appendChild(caption);
+        modalDiv.addClass("imgcaption");
+        modalDiv.append(newImg);
+        modalDiv.append(caption);
 
-        container.appendChild(modalDiv);
-
-        
+        container.append(modalDiv);
     });
 }())
 
