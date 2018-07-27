@@ -32,7 +32,6 @@
     }
 
     var removeImage = function() {
-        var remove = $(".bigsize");
         modalbox.empty();
     }
     
